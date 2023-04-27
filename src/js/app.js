@@ -96,13 +96,14 @@ App = {
             }
             console.log('getMetaskID:',res);
             App.metamaskAccountID = res[0];
-
+            web3.eth.defaultAccount = res[0];
         })
     },
 
     initSupplyChain: function () {
         /// Source the truffle compiled smart contracts
         var jsonSupplyChain='../../build/contracts/SupplyChain.json';
+        
         
         /// JSONfy the smart contracts
         $.getJSON(jsonSupplyChain, function(data) {
