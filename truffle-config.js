@@ -14,7 +14,13 @@ module.exports = {
       provider: function() { 
         return new HDWalletProvider(mnemonic, "https://sepolia.infura.io/v3/2d907fb6564d494585bbcd668f253c73");
       },
-      network_id: "11155111",
+      network_id: "11155111"
+    }
+  },
+
+  compilers: {
+    solc: {
+      version: "^0.4.24"
     }
   }
 };
