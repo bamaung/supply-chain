@@ -14,7 +14,10 @@ module.exports = {
       provider: function() { 
         return new HDWalletProvider(mnemonic, "https://sepolia.infura.io/v3/2d907fb6564d494585bbcd668f253c73");
       },
-      network_id: "11155111"
+      network_id: "11155111",
+      from: "0x713E714A8FCdD580f13C0B712d3808A30528d08A",
+      gas: 4500000,
+      gasPrice: 8363488687
     }
   },
 
