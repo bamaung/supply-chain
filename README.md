@@ -8,6 +8,18 @@
 - truffle-hdwallet-provider 1.0.17
 - web3js 0.20.7
 
+## Compile and test the project
+```sh
+$ truffle develop  # start the development client
+$ compile 
+$ test
+```
+
+## Deploy smart contracts to the Sepolia testnet
+```sh
+$ truffle migrate --network sepolia
+```
+
 ## Tx hash and Smart Contract
 |                          |                                                                    |
 |--------------------------|--------------------------------------------------------------------|
@@ -22,19 +34,39 @@
 | SupplyChain Tx hash      | 0xabae25e52cfa1a2ad7641f0d3083ea3aba90f057cc8a886c0c37a25292dbcba9 |
 | SupplyChain contract     |                         0x7998140c3ab5ed211bd47cfb2cdfa76e7aa0606f |
 
-https://sepolia.etherscan.io/address/0x7998140c3ab5ed211bd47cfb2cdfa76e7aa0606f
+[View Supply chain contract on etherscan](https://sepolia.etherscan.io/address/0x7998140c3ab5ed211bd47cfb2cdfa76e7aa0606f)
 
 ## IPFS website
-https://gateway.ipfs.io/ipfs/QmPthR3pBQKzUmjPPWHsWbVe8yweu1DHXzN4MJ5XvRvm3Q/supply-chain/
+To make Dapp more decentralize I used IPFS for website hosting.
 
-## Activity Diagram
+[Fair Trade Coffee](https://gateway.ipfs.io/ipfs/QmPthR3pBQKzUmjPPWHsWbVe8yweu1DHXzN4MJ5XvRvm3Q/supply-chain/)
+
+### Deploy to IPFS
+- Copy the necessary files to the build directory.
+```sh
+$ cp index.html build/
+$ cp src/js build/
+$ cp style.css build/
+```
+- Replace the code on line 105 of the build/js/app.js file with the code below.
+```js
+var jsonSupplyChain='build/contracts/SupplyChain.json';
+```
+- Upload to IPFS
+```sh
+$ ipfs add -r build
+$ ipfs name publish <ipfs-hash-of-the-build-folder>
+```
+
+## Diagrams
+### Activity Diagram
 ![Activity Diagram](/images/activity.png)
 
-## Sequence Diagram
+### Sequence Diagram
 ![Sequence Diagram](/images/sequence.png)
 
-## State Diagram
+### State Diagram
 ![State Diagram](/images/state.png)
 
-## Classes (Data Model) Diagram
+### Classes (Data Model) Diagram
 ![Classes Diagram](/images/class.png)
